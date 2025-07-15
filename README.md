@@ -82,15 +82,15 @@ In backend/notifier/notifier/src/notifier/settings.py:
 
 You can import backend/Insomnia_2025-07-10.yaml (located at same level as this README.md) and start using the GET, GET all, POST, and PATCH requests I've created.
 
-```
-
 9. To test back-end:
 
 - Send a POST request with the body below and watch the notifier terminal to see updates. (e.g., POST http://localhost:8000/v1/mail_items/).
 
+```
 {
 	"mail_item_created_by": "your_personal_email"
 }
+```
 
 - Send a PATCH request with the UUID of your mail item and the body below. (e.g., PATCH http://localhost:8000/v1/mail_items/{uuid}).
 
