@@ -27,11 +27,12 @@ To get both services up and running locally, follow these steps:
 
 ### Prerequisites
 
-Ensure you have the following installed:
+1. Ensure you have the following installed:
 
-1. **Python 3.11** (or compatible version as specified in `pyproject.toml`)
-2. **PDM** (Python Dependency Manager) - A great Python dependency manager, much like NPM for Node.js. If you don't have it, install it globally:
-
+- **Python >= 3.11.11**
+- **Node.js >= 20.19.3**
+- **NPM >= 10.8.2**
+- **PDM >= 2.24.2** (Python Dependency Manager) - Manages dependencies much like NPM for Node.js. If you don't have it, install it globally:
 ```bash
 pip install pdm
 
@@ -39,14 +40,14 @@ Or, if you prefer pipx:
 pipx install pdm
 ```
 
-3. **SendGrid Account**:
+2. **SendGrid Account**:
 You'll need a SendGrid account to send email notifications from the notifier service.
 Sign up at SendGrid.com and complete these steps:
 - Generate an API Key and set it in backend/notifier/notifier/.env as `NOTIFIER_SENDGRID_API_KEY=your_api_key`
 - Verify a sender: https://app.sendgrid.com/settings/sender_auth
 - You may receive a 401 if you send over 100 emails per day on the free account
 
-4. Install project dependencies using PDM.
+3. Install project dependencies using PDM.
 
 This will also create a virtual environment (.venv) and generate pdm.lock for each.
 
@@ -59,36 +60,36 @@ cd backend/mail_manager/mail_manager_sdk
 cd backend/notifier/notifier
 ```
 
-5. Start the `mail_manager` server:
+4. Start the `mail_manager` server:
 
 `cd backend/mail_manager/mail_manager`
 `pdm run start`
 
 This will start the server on http://0.0.0.0:8000.
 
-6. Start the `notifier` server in a separate terminal:
+5. Start the `notifier` server in a separate terminal:
 
 `cd backend/notifier/notifier`
 `pdm run start`
 
 This will start the server on http://0.0.0.0:8001.
 
-7. Change this variable to your personal email (email might go to spam):
+6. Change this variable to your personal email (email might go to spam):
 
 In backend/notifier/notifier/src/notifier/settings.py:
 `SENDER_EMAIL: str = "your_personal_email"`
 
-8. Download Insomnia or another API development platform.
+7. Download Insomnia or another API development platform.
 
 You can import backend/Insomnia_2025-07-10.yaml (located at same level as this README.md) and start using the GET, GET all, POST, and PATCH requests I've created.
 
-9. To test back-end:
+8. To test back-end:
 
 - Send a POST request with the body below and watch the notifier terminal to see updates. (e.g., POST http://localhost:8000/v1/mail_items/).
 
 ```
 {
-	"mail_item_created_by": "your_personal_email"
+  "mail_item_created_by": "your_personal_email"
 }
 ```
 
@@ -100,7 +101,7 @@ You can import backend/Insomnia_2025-07-10.yaml (located at same level as this R
 }
 ```
 
-10. To run the front-end:
+9. To run the front-end:
 
 - Change `DEFAULT_SENDER_EMAIL` to your personal email.
 - Run the following commmands:
