@@ -2,9 +2,8 @@ import datetime
 import uuid
 
 from app_common.enums import MailItemStatus
-from sqlalchemy import Column, DateTime, Enum, String, Text, Boolean
-
 from mail_manager.core.v1.database import Base
+from sqlalchemy import Boolean, Column, DateTime, Enum, String, Text
 
 
 class MailItem(Base):

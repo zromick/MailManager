@@ -1,5 +1,3 @@
-from typing import Optional
-
 from app_common.pagination import GenericLimitOffsetPage
 from app_common.schemas import MailItem, MailItemCreate, MailItemUpdate
 from fastapi import APIRouter, Depends

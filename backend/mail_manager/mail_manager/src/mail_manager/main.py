@@ -1,12 +1,11 @@
+from app_common.logger import logger
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi_pagination import add_pagination
+from mail_manager.api.v1 import mail_manager_api
 from mail_manager.api.v1.exceptions import setup_exception_handlers
 from mail_manager.core.v1 import database
 from mail_manager.settings import Settings, settings
-
-from app_common.logger import logger
-from mail_manager.api.v1 import mail_manager_api
 
 database.Base.metadata.create_all(bind=database.engine)
 

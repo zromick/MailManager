@@ -1,10 +1,9 @@
 import requests
-
 from app_common.schemas import MailItem, MailItemUpdate
 from mail_manager_sdk.exceptions import (
     handle_http_errors,
-    handle_request_errors,
     handle_mail_manager_not_found,
+    handle_request_errors,
 )
 
 
@@ -29,7 +28,7 @@ class MailManagerClient:
             f"{self.base_url}/v1/mail_items/{mail_item_uuid}"
         ).json()
         return MailItem(**response)
-    
+
     @handle_request_errors
     @handle_http_errors
     def get_all_mail_items(self) -> list[MailItem]:

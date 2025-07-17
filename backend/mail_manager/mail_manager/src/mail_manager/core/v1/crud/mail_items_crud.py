@@ -1,18 +1,13 @@
-from datetime import datetime
 from functools import lru_cache
-from typing import Optional
 
-from fastapi.encoders import jsonable_encoder
-from fastapi_pagination import add_pagination
-from sqlalchemy import select
-from sqlalchemy.orm import Session
-
+from app_common.enums import MailItemStatus
+from app_common.logger import logger
+from app_common.schemas import MailItemCreate, MailItemUpdate
 from fastapi_pagination.ext.sqlalchemy import paginate
 from mail_manager.api.v1.exceptions import MailItemNotFoundException
 from mail_manager.core.v1 import models
-from app_common.logger import logger
-from app_common.schemas import MailItemCreate, MailItemUpdate
-from app_common.enums import MailItemStatus  # Assuming MailItemStatus is here
+from sqlalchemy import select
+from sqlalchemy.orm import Session
 
 
 class MailItemsCRUD:

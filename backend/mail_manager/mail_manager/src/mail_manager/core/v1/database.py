@@ -1,7 +1,6 @@
 import sqlalchemy
-from sqlalchemy.orm import declarative_base, sessionmaker
-
 from mail_manager.settings import settings
+from sqlalchemy.orm import declarative_base, sessionmaker
 
 metadata = sqlalchemy.MetaData()
 
