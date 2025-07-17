@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+
 from app_common.schemas import MailItem
 
 

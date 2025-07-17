@@ -1,14 +1,14 @@
 from functools import lru_cache
 from http import HTTPStatus
-import datetime
-from sendgrid import SendGridAPIClient
-from sendgrid.helpers.mail import Mail
+
+from app_common.logger import logger
+from app_common.schemas import MailItem
+from email_validator import EmailNotValidError, validate_email
 from notifier.core.v1.notifiers.abstract_notifier import AbstractNotifier
 from notifier.exceptions import EmailNotificationException, InvalidEmailInputException
-from app_common.logger import logger
 from notifier.settings import settings
-from email_validator import validate_email, EmailNotValidError
-from app_common.schemas import MailItem
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail
 
 
 def is_company_email(email: str) -> bool:

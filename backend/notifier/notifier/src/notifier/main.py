@@ -1,10 +1,9 @@
 import asyncio
 from contextlib import asynccontextmanager
 
+from app_common.logger import logger
 from fastapi import FastAPI
 from notifier.core.v1.notifier import get_notification_manager
-
-from app_common.logger import logger
 
 
 @asynccontextmanager

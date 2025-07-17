@@ -1,16 +1,15 @@
 import asyncio
-from functools import lru_cache
 import datetime
+from functools import lru_cache
 
+from app_common.enums import MailItemStatus
+from app_common.logger import logger
+from app_common.schemas import MailItem, MailItemUpdate
 from mail_manager_sdk.client import MailManagerClient
 from mail_manager_sdk.exceptions import MailManagerClientException
-from notifier.exceptions import NotifierException
-from app_common.logger import logger
-from notifier.settings import settings
-from app_common.enums import MailItemStatus
-from app_common.schemas import MailItem, MailItemUpdate
-
 from notifier.core.v1.notifiers.email_notifier import get_email_notifier
+from notifier.exceptions import NotifierException
+from notifier.settings import settings
 
 # Initialize clients
 mail_manager_client = MailManagerClient(settings.MAIL_MANAGER_BASE_URL)
@@ -60,7 +59,6 @@ class Notifier:
                 mail_item_uuids_in_poll = [
                     item.mail_item_uuid for item in mail_items_to_process
                 ]
-                # NEW: Updated log message
                 logger.info(
                     "Poll {} - Mail Items with Reviews Still Pending: {}",
                     self.poll_counter,
