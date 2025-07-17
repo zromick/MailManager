@@ -1,11 +1,11 @@
 from typing import TypeVar
 
-from fastapi_pagination.limit_offset import LimitOffsetPage as BaseLimitOffsetPage
 from fastapi_pagination.customization import (
     CustomizedPage,
     UseIncludeTotal,
     UseParamsFields,
 )
+from fastapi_pagination.limit_offset import LimitOffsetPage as BaseLimitOffsetPage
 
 # Pagination type based on docs: https://uriyyo-fastapi-pagination.netlify.app/learn/pagination/techniques/
 # You can refer to the 'Techniques' section for different pagination types.

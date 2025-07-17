@@ -1,7 +1,7 @@
 from datetime import datetime
-from email_validator import validate_email, EmailNotValidError
 
 from app_common.enums import MailItemStatus
+from email_validator import EmailNotValidError, validate_email
 from pydantic import BaseModel, field_validator
 
 
@@ -24,19 +24,14 @@ class MailItemCreate(MailItemBase):
 
 
 class MailItemUpdate(MailItemBase):
-    mail_item_review_status: MailItemStatus
-    mail_item_final_notification_sent: bool
+    # fields are optional for PATCH requests
+    mail_item_review_status: MailItemStatus | None = None
+    mail_item_final_notification_sent: bool | None = None
 
 
 class MailItem(MailItemCreate, MailItemUpdate):
     mail_item_uuid: str
     mail_item_created_time: datetime
-
-
-class MailItemUpdate(BaseModel):
-    # fields are optional for PATCH requests
-    mail_item_review_status: MailItemStatus | None = None
-    mail_item_final_notification_sent: bool | None = None
 
 
 class MailItem(MailItemCreate, MailItemUpdate):
