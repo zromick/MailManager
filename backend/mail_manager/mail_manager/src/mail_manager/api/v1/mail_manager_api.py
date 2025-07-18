@@ -27,10 +27,11 @@ def get_mail_item(mail_item_uuid: str, db: Session = Depends(get_db)):
 def get_all_mail_items(
     limit: int = 10,
     offset: int = 0,
+    ignore_pending: bool = False,
     ignore_complete: bool = False,
     db: Session = Depends(get_db),
 ):
-    return mail_items_crud.get_all_mail_items(db, limit, offset, ignore_complete)
+    return mail_items_crud.get_all_mail_items(db, limit, offset, ignore_pending, ignore_complete)
 
 
 @router.post("/v1/mail_items/", response_model=MailItem)

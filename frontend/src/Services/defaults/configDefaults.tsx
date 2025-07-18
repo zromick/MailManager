@@ -13,6 +13,7 @@ export const DEFAULT_GET_ALL_MAIL_ITEMS_PARAMS:FetchGetAllMailItemsParams = {
 	"limit": 10,
 	"offset": 0,
 	"ignore_complete": false,
+	"ignore_pending": false,
 }
 
 export const DEFAULT_GET_ALL_MAIL_ITEMS_RESPONSE:GetAllMailItemsResponse = {

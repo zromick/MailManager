@@ -60,6 +60,7 @@ export interface FetchGetAllMailItemsParams {
   limit: number;
   offset: number;
   ignore_complete: boolean;
+  ignore_pending: boolean;
 }
 
 export interface FetchPostMailItemsParams {

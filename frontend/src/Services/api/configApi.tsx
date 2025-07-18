@@ -9,8 +9,8 @@ export const fetchGetMailItem:((fetchParams: FetchGetMailItemsParams) => Promise
 }
 
 export const fetchGetAllMailItems:((fetchParams:FetchGetAllMailItemsParams) => Promise<Response>) = (fetchParams) => {
-  const { limit, offset, ignore_complete } = fetchParams;
-  return callServiceAsPromise(`${host}${mailItemsQuery}?limit=${limit}&offset=${offset}&ignore_complete=${ignore_complete}`);
+  const { limit, offset, ignore_complete, ignore_pending } = fetchParams;
+  return callServiceAsPromise(`${host}${mailItemsQuery}?limit=${limit}&offset=${offset}&ignore_complete=${ignore_complete}&ignore_pending=${ignore_pending}`);
 }
 
 export const fetchPostMailItem:((fetchParams: FetchPostMailItemsParams) => Promise<Response>) = (fetchParams) => {

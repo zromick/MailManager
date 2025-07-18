@@ -40,16 +40,23 @@ class MailItemsCRUD:
         session: Session,
         limit: int = 10,
         offset: int = 0,
+        ignore_pending: bool = False,
         ignore_complete: bool = False,
     ):
         logger.info(
             "Retrieving mail items with:\n"
             "limit: {}\n"
             "offset: {}\n"
+            "ignore complete pending: {}\n"
             "ignore complete statuses: {}",
             limit,
             offset,
+            ignore_pending,
             ignore_complete,
+        )
+
+        ignore_pending_filter = (
+            models.MailItem.mail_item_review_status != MailItemStatus.PENDING
         )
 
         ignore_complete_filter = (
@@ -57,6 +64,10 @@ class MailItemsCRUD:
         )
 
         select_statement = select(models.MailItem)
+
+        if ignore_pending:
+            select_statement = select_statement.filter(ignore_pending_filter)
+
         if ignore_complete:
             select_statement = select_statement.filter(ignore_complete_filter)
 
