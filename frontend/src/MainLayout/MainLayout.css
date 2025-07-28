@@ -1,0 +1,70 @@
+:root {
+--Mail-Blue-500: #3066BE;
+}
+
+.app-root-container {
+width: 100vw;
+}
+
+.main-layout-outer-wrapper {
+height: 100%;
+width: auto;
+display: flex;
+flex-direction: column;
+margin: 20px;
+}
+
+.main-layout-outer {
+height: 100%;
+width: 100%;
+display: flex;
+flex-direction: column;
+}
+
+.main-layout-inner {
+display: flex;
+flex-direction: column;
+background-color: white;
+border-radius: 8px;
+/* box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); */ /* Style choice: Creates a box around the main content */
+padding: 40px 60px 20px 60px;
+}
+
+.main-layout-top-content-wrapper {
+display: flex;
+flex-direction: column;
+}
+
+.main-layout-header {
+display: flex;
+width: 100%;
+justify-content: flex-start;
+padding: 0;
+}
+
+.main-layout-logo {
+width: 120px;
+height: 23.03px;
+}
+
+.main-layout-content {
+width: 100%;
+display: flex;
+flex-direction: column;
+overflow: auto;
+padding: 0;
+margin-top: 20px;
+}
+
+.main-layout-content:first-of-type {
+margin-top: 0;
+}
+
+.main-layout-footer {
+width: 100%;
+display: flex;
+justify-content: center;
+text-align: center;
+padding: 0;
+margin-top: 20px;
+}
