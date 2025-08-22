@@ -1,8 +1,10 @@
 # Mail Manager
 
-Problem: Clients need to be reminded to update information that may have caused issues with getting mail sent out to them.
+Problem: Clients with pending issues will not get their mail sent to them.
 
-Solution: A Python-based monorepo designed to poll for status changes (example: Have you updated that piece of information?) and send email updates (based on PENDING or COMPLETE status).
+Solution: Email clients on an interval about pending issues until all issues are marked as complete.
+
+Technologies used: Python, FastAPI, SQLite, SendGrid, React, TypeScript, MUI
 
 ## What You'll See:
 - Watch the notifier terminal (PORT 8001) to see updates second by second.
